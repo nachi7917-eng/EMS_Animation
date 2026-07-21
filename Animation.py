@@ -39,7 +39,11 @@ class EMS(Scene):
         moon.add_updater(lambda m: m.move_to(
             earth.get_center() + np.array([np.cos(t.get_value()), np.sin(t.get_value()), 0])
             ))
-        self.play(Rotate(earth, angle=TAU, about_point=sun.get_center(), run_time=10))
+        self.play(
+            Rotate(earth, angle=TAU, about_point=sun.get_center()),
+                t.animate.set_value(TAU * 4),  # 4 lunar orbits
+                run_time=10
+            )
         moon.clear_updaters()
 
         self.wait(1)
