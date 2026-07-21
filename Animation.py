@@ -32,6 +32,16 @@ class EMS(Scene):
             moon.animate.move_to(moon_target),
             run_time=3
         )
+        self.play(Rotate(
+            earth,
+            angle=TAU,
+            about_point=sun.get_center(),
+            run_time=10))
+        self.play(Rotate(
+            moon,
+            angle=TAU,
+            about_point=earth.get_center(),
+            run_time=10))
 
         self.wait(2)
 
