@@ -1,2 +1,25 @@
 # EMS_Animation
-This is an visual animation of the EMS(Earth-Moon-Sun) system showing their orbits relative to each other with the Sun as the centre.
+# Earth–Moon–Sun Animation
+
+A scientific animation created using Manim that visualizes the Earth–Moon–Sun system.
+
+## Features
+
+- Earth's revolution around the Sun
+- Moon's revolution around Earth
+- Orbital paths
+
+## Technologies
+
+- Python
+- Manim
+- Git
+- GitHub
+
+## Future Possible Improvements
+
+- Day Night Cycle
+- Seasons
+- Eclipses
+- Moon phases
+- Axial tilt
