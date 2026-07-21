@@ -4,9 +4,9 @@ class EMS(Scene):
     def construct(self):
 
         # Creates celestial bodies
-        sun = Circle(radius=1)
-        earth = Circle(radius=0.5)
-        moon = Circle(radius=0.1)
+        sun = Circle(radius=0.5)
+        earth = Circle(radius=0.2)
+        moon = Circle(radius=0.05)
         
         #Combines earth and moon into one object
         earth_moon = VGroup(earth, moon)
@@ -18,8 +18,8 @@ class EMS(Scene):
 
         # Final positions
         sun_target = ORIGIN
-        earth_target = RIGHT * 4
-        moon_target = RIGHT * 5
+        earth_target = RIGHT * 3
+        moon_target = RIGHT * 3.5
         
         # Add objects
         self.play(FadeIn((sun)))
@@ -33,14 +33,15 @@ class EMS(Scene):
             sun.animate.move_to(sun_target),
             earth.animate.move_to(earth_target),
             moon.animate.move_to(moon_target),
-            run_time=3
+            run_time=3,
+            rate_func= linear
         )
         t = ValueTracker(0)
         earth.add_updater(lambda m: m.move_to(
-            sun.get_center() + 4 * np.array([np.cos(t.get_value()), np.sin(t.get_value()), 0])
+            sun.get_center() + 3 * np.array([np.cos(t.get_value()), np.sin(t.get_value()), 0])
         ))
         moon.add_updater(lambda m: m.move_to(
-            earth.get_center() + np.array([np.cos(4 * t.get_value()), np.sin(4 * t.get_value()), 0])
+            earth.get_center() + 0.5*np.array([np.cos(4 * t.get_value()), np.sin(4 * t.get_value()), 0])
         ))
         self.play(t.animate.set_value(TAU), run_time=10, rate_func=linear)
         earth.clear_updaters()
