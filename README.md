@@ -9,7 +9,6 @@ A scientific animation created using Manim that visualizes the Earth–Moon–Su
 
 - Earth's revolution around the Sun
 - Moon's revolution around Earth
-- Orbital paths
 
 ## Technologies
 
