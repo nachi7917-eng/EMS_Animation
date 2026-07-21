@@ -29,4 +29,4 @@ A scientific animation created using Manim that visualizes the Earth–Moon–Su
 ## Disclaimer
 
 
-This is inteded as just an animation made by using the Manim library and not a simulation. The planets and speeds and not to scale.
+This is inteded as just an animation made by using the Manim library and not a simulation. The planets and speeds are not to scale.
