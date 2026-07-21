@@ -7,6 +7,9 @@ class EMS(Scene):
         sun = Circle(radius=1)
         earth = Circle(radius=0.5)
         moon = Circle(radius=0.1)
+        
+        #Combines earth and moon into one object
+        earth_moon = VGroup(earth, moon)
 
         # Styling
         sun.set_fill(YELLOW, opacity=1).set_stroke(width=0)
@@ -33,7 +36,7 @@ class EMS(Scene):
             run_time=3
         )
         self.play(Rotate(
-            earth,
+            earth_moon,
             angle=TAU,
             about_point=sun.get_center(),
             run_time=10))
