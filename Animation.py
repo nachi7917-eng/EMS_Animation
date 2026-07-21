@@ -36,20 +36,20 @@ class EMS(Scene):
             run_time=3
         )
         t = ValueTracker(0)
+        earth.add_updater(lambda m: m.move_to(
+            sun.get_center() + 4 * np.array([np.cos(t.get_value()), np.sin(t.get_value()), 0])
+        ))
         moon.add_updater(lambda m: m.move_to(
-            earth.get_center() + np.array([np.cos(t.get_value()), np.sin(t.get_value()), 0])
-            ))
-        self.play(
-            Rotate(earth, angle=TAU, about_point=sun.get_center()),
-                t.animate.set_value(TAU * 4),  # 4 lunar orbits
-                run_time=10
-            )
+            earth.get_center() + np.array([np.cos(4 * t.get_value()), np.sin(4 * t.get_value()), 0])
+        ))
+        self.play(t.animate.set_value(TAU), run_time=10)
+        earth.clear_updaters()
         moon.clear_updaters()
 
         self.wait(1)
 
         # Title
-        text = Text("Earth Moon Sun Animation")
-        text.move_to(DOWN*3)
+        text = Text("Earth-Moon-Sun Animation")
+        text.move_to(DOWN*2)
         self.play(Write(text))
         self.wait(2)
