@@ -3,33 +3,40 @@ from manim import *
 class EMS(Scene):
     def construct(self):
 
-        #Creates the Celestial bodies
-        
+        # Creates celestial bodies
         sun = Circle(radius=1)
         earth = Circle(radius=0.5)
         moon = Circle(radius=0.1)
-        
-        #Gives them colour,opacity and set their border width to zero
-        
+
+        # Styling
         sun.set_fill(YELLOW, opacity=1).set_stroke(width=0)
         earth.set_fill(DARK_BLUE, opacity=1).set_stroke(width=0)
         moon.set_fill(GREY, opacity=1).set_stroke(width=0)
+
+        # Final positions
+        sun_target = ORIGIN
+        earth_target = RIGHT * 4
+        moon_target = RIGHT * 5
         
-        #Adds the text
-        
+        # Add objects
+        self.play(FadeIn((sun)))
+        self.play(FadeIn((earth)))
+        self.play(FadeIn((moon)))
+
+        self.wait(1)
+
+        # Move into position
+        self.play(
+            sun.animate.move_to(sun_target),
+            earth.animate.move_to(earth_target),
+            moon.animate.move_to(moon_target),
+            run_time=3
+        )
+
+        self.wait(2)
+
+        # Title
         text = Text("Earth Moon Sun Animation")
-
-        #Plays the animation
-
-        self.wait(2)
-
-        self.play(Create(sun))
-
-        self.play(Create(earth))
-        self.play(Create(moon))
-
-        self.wait(2)
-
+        text.move_to(DOWN*3)
         self.play(Write(text))
-
         self.wait(2)
