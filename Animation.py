@@ -1,6 +1,7 @@
-def main():
-    print("Hello from ems-animation!")
+from manim import *
 
-
-if __name__ == "__main__":
-    main()
+class EMS(Scene):
+    def construct(self):
+        text = Text("Earth Moon Sun Animation")
+        self.play(Write(text))
+        self.wait(2)
