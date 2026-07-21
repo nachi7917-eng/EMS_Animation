@@ -42,7 +42,7 @@ class EMS(Scene):
         moon.add_updater(lambda m: m.move_to(
             earth.get_center() + np.array([np.cos(4 * t.get_value()), np.sin(4 * t.get_value()), 0])
         ))
-        self.play(t.animate.set_value(TAU), run_time=10)
+        self.play(t.animate.set_value(TAU), run_time=10, rate_func=linear)
         earth.clear_updaters()
         moon.clear_updaters()
 
